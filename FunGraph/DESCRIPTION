@@ -1,14 +1,20 @@
 Package: FunGraph
 Type: Package
-Title: A statistical protocol to reconstruct omnigenic multilayer interactome networks for complex traits
+Title: A statistical protocol to reconstruct omnigenic multilayer
+        interactome networks for complex traits
 Version: 1.0
 Author: Zhao Jinshuai
 Maintainer: Zhao jinshuai <619938731@qq.com>
 Description: FunGraph provides a detailed protocol for revealing the comprehensive genetic architecture of complex traits.
-License:GPL
-Imports: mvtnorm,parallel,pbapply,ggplot2,deSolve,glmnet,orthopolynom,writexl
+License: GPL
+Imports:
+        mvtnorm,parallel,pbapply,ggplot2,deSolve,glmnet,orthopolynom,writexl,patchwork,RColorBrewer,reshape2,scales
 Depends: R (>= 3.60)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
+Suggests: rmarkdown, knitr
+VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2022-05-07 15:43:39 UTC; Administrator

@@ -2,7 +2,9 @@
 #' @description FunMap is crucial to this model, for it excavates how specific QTLs 
 #' determines the complex trait. The mean vector and covariance 
 #' structure should be modeled according to the design of the experiment.
-#' @importFrom stats coef cor cov kmeans lm optim sd time
+#' @import  mvtnorm parallel pbapply ggplot2 deSolve glmnet orthopolynom writexl
+#' @importFrom  stats coef cor cov kmeans lm optim sd time
+#' @importFrom  mvtnorm dmvnorm
 #' @param funmap_data The phenotypic data.Remove or replace missing values in the data; Log-transformed the phenotypic data by command log() if the number in the data vary widely is recommended, such as numbers differ by more than five order of magnitude.
 #' @param funmap_data_snp  Genotypic data.only accept numeric value for calculation, SNP genotype data should be converted into 0,1 matrix.
 #' @param times A series of times for measuring phenotypic data
@@ -101,7 +103,7 @@ Funmap_function <- function(funmap_data,funmap_data_snp,times,rownumber=dim(funm
   }
   core.number <- detectCores()
   cl <- makeCluster(getOption("cl.cores", core.number))
-  clusterExport(cl, c("dmvnorm"))
+  clusterExport(cl, c("dmvnorm"),envir=environment())
   All_H1_result <- pbapply(funmap_data_snp[1:rownumber,],1,H1_function,cl=cl)
   stopCluster(cl)
   All_H1_value <-sapply(1:dim(funmap_data_snp[1:rownumber,])[1],function(c)(All_H1_result[[c]][2]))

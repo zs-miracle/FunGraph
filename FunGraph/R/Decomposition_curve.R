@@ -24,11 +24,11 @@ Decomposition_curve<- function(exp_index,legendre_order,data,alpha=0){
       #x_matrix <- as.matrix(x_matrix)
       name <- colnames(clean_data)
       ridge1_cv <- cv.glmnet(x = x_matrix, y = m,type.measure = "mse",
-                             family="gaussian",nfold = 10,alpha = 0)
+                             family="gaussian",nfolds = 10,alpha = 0)
       best_ridge_coef <- abs(as.numeric(coef(ridge1_cv, s = ridge1_cv$lambda.min))[-1])
       
       fit_res <- cv.glmnet(x = x_matrix, y = m,type.measure = "mse", family="gaussian",
-                           nfold = 10,alpha = 1,
+                           nfolds = 10,alpha = 1,
                            penalty.factor = 1/best_ridge_coef,
                            keep = TRUE)
       best_alasso_coef1 <- coef(fit_res, s = fit_res$lambda.min)

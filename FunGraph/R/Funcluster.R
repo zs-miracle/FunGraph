@@ -2,6 +2,7 @@
 #' @description According to modularity theory,functional clustering (FunClu) was 
 #' introduced to cluster genetic effects into different functional modules. 
 #' A hybrid of the EM and simplex algorithms were implanted to obtain the functional modules.
+#' @import mvtnorm parallel pbapply ggplot2 deSolve glmnet orthopolynom writexl
 #' @importFrom stats coef cor cov kmeans lm optim sd time
 #' @param data The net genetic effects of all loci were calculated by Get_effect function(remarker_effect).
 #' @param times rep A series of times for measuring phenotypic data
@@ -12,6 +13,7 @@
 #' @export
 
 Funcluster <- function(data,times,rep,k,legendre_order){
+  colnames(data) <- c(times)
   get_init_par <- function(data,k,legendre_order){
     get_legendre_par <- function(y,legendre_order,x){
       #lm_method
