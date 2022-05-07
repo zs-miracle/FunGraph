@@ -395,7 +395,7 @@ Here we use the results of Section 5(fourteen_cluster_mean_effect$after) to map 
 fourteen_cluster_mean_effect$after
 ```
 
-Call write_xlsx to save fourteen_cluster_mean_effect$after as an XLSX file and import it into Cytoscape参数,as follow:
+Call write_xlsx to save fourteen_cluster_mean_effect$after as an XLSX file and import it into Cytoscape parameters,as follow:
 ```{r pressure, echo=FALSE, out.width = '100%'}
 knitr::include_graphics("D:/cytoscape.png")
 ```

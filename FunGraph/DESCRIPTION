@@ -17,4 +17,4 @@ RoxygenNote: 7.1.2
 Suggests: rmarkdown, knitr
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2022-05-07 15:43:39 UTC; Administrator
+Packaged: 2022-05-07 15:54:16 UTC; Administrator
